@@ -10,7 +10,12 @@
 
 </ul><br>
 
-<h4><%= link_to 'Service your shoes', new_invoice_path %></h4>
+
+
+
+<%= button_to 'Service your shoe', {:controller => "invoices", :action => "create", :user_shoe_id => @user_shoe.id}, :method=>:post  %>
+
+<!--  :user_id=> session[:user_id] -->
 
 <%= link_to 'Edit', edit_user_shoe_path(@user_shoe) %> ∙
 <%= link_to 'Delete', @user, method: 'delete', data: { confirm: 'Are you sure?' } %>
