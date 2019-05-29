@@ -69,6 +69,6 @@ class UserShoesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_shoe_params
-      params.fetch(:user_shoe, {})
+      params.require(:user_shoe).permit(:user_id, :shoe_id, :nickname)
     end
 end

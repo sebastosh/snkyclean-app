@@ -1,17 +1,8 @@
 <%= form_with(model: user_shoe, local: true) do |form| %>
-  <% if user_shoe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_shoe.errors.count, "error") %> prohibited this user_shoe from being saved:</h2>
-
-      <ul>
-      <% user_shoe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="actions">
+    Name: <%= form.collection_select :user_id, User.all, :id, :name %><br>
+    Sneaker Brand: <%= form.collection_select :shoe_id, Shoe.all, :id, :brand %><br>
+    Sneaker Style: <%= form.collection_select :shoe_id, Shoe.all, :id, :style %><br>
     <%= form.submit %>
   </div>
 <% end %>
