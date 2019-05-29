@@ -20,23 +20,23 @@ class UserShoesController < ApplicationController
 
   # GET /user_shoes/1/edit
   def edit
-    
+
   end
 
   # POST /user_shoes
   # POST /user_shoes.json
   def create
-    @user_shoe = UserShoe.new(user_shoe_params)
-
-    respond_to do |format|
-      if @user_shoe.save
-        format.html { redirect_to @user_shoe, notice: 'User shoe was successfully created.' }
-        format.json { render :show, status: :created, location: @user_shoe }
-      else
-        format.html { render :new }
-        format.json { render json: @user_shoe.errors, status: :unprocessable_entity }
-      end
-    end
+    @user_shoe = UserShoe.create(user_shoe_params)
+    # respond_to do |format|
+    #   if @user_shoe.save
+    #     format.html { redirect_to @user_shoe, notice: 'User shoe was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user_shoe }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user_shoe.errors, status: :unprocessable_entity }
+    #   end
+    # end
+    redirect_to user_shoe_path(@user_shoe)
   end
 
   # PATCH/PUT /user_shoes/1
@@ -71,6 +71,6 @@ class UserShoesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_shoe_params
-      params.require(:user_shoe).permit(:user_id, :shoe_id, :nickname)
+      params.require(:user_shoe).permit!
     end
 end

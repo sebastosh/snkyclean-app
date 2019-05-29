@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Your Sneakers:</h3>
+<h3>Your Sneaker: <%= @user_shoe.nickname %>  </h3>
 <ul>
-  <%= @user_shoes.shoes.each do |shoe| %>
-  <li><%= link_to shoe.brand, shoe_path(shoe) %></li>
-  <% end %>
+  Brand: <%= @user_shoe.shoe.brand %><br>
+  Style: <%= @user_shoe.shoe.style %><br>
+
 </ul><br>
 
 <%= link_to 'Edit', edit_user_shoe_path(@user_shoe) %> ∙

@@ -12,7 +12,7 @@
   <tbody>
     <% @user_shoes.each do |user_shoe| %>
       <tr>
-        <td><%= link_to 'Show', user_shoe %></td>
+        <td><%= link_to user_shoe.nickname, user_shoe %></td>
         <td><%= link_to 'Edit', edit_user_shoe_path(user_shoe) %></td>
         <td><%= link_to 'Destroy', user_shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
