@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_shoe_path(@user_shoe) %> |
-<%= link_to 'Back', user_shoes_path %>
+<h3>Your Sneakers:</h3>
+<ul>
+  <%= @user_shoes.shoes.each do |shoe| %>
+  <li><%= link_to shoe.brand, shoe_path(shoe) %></li>
+  <% end %>
+</ul><br>
+
+<%= link_to 'Edit', edit_user_shoe_path(@user_shoe) %> ∙
+<%= link_to 'Delete', @user, method: 'delete', data: { confirm: 'Are you sure?' } %>
