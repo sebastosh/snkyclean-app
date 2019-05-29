@@ -14,6 +14,8 @@
   <div class="actions">
     <%= form.label :name %>
     <%= form.text_field :name %>
+    <%= form.label :invoice_id %>
+    <%= form.collection_select :invoice_id, Invoice.all, :id, :id%><br>
     <%= form.submit %>
   </div>
 <% end %>

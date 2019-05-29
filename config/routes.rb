@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :user_shoes
   resources :shoes
   resources :users
-  resources :sessions
+  # resources :sessions
 end
