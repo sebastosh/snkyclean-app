@@ -1,3 +1,4 @@
 class Service < ApplicationRecord
-  belongs_to :invoice
+  has_many :invoice_services
+  has_many :invoices, through: :invoice_services
 end

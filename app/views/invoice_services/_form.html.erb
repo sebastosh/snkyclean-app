@@ -1,0 +1,17 @@
+<%= form_with(model: invoice_service, local: true) do |form| %>
+  <% if invoice_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invoice_service.errors.count, "error") %> prohibited this invoice_service from being saved:</h2>
+
+      <ul>
+      <% invoice_service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
