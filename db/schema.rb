@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_020504) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.integer "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
