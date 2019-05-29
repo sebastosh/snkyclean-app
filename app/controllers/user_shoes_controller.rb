@@ -10,6 +10,7 @@ class UserShoesController < ApplicationController
   # GET /user_shoes/1
   # GET /user_shoes/1.json
   def show
+
   end
 
   # GET /user_shoes/new
@@ -19,6 +20,7 @@ class UserShoesController < ApplicationController
 
   # GET /user_shoes/1/edit
   def edit
+    
   end
 
   # POST /user_shoes
