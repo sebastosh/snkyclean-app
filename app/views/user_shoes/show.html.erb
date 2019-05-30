@@ -1,8 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
-
 <h3><%= @user_shoe.user.name %>'s Sneaker: <%= @user_shoe.nickname %>  </h3>
 <ul>
   Brand: <%= @user_shoe.shoe.brand %><br>
@@ -10,10 +7,7 @@
 
 </ul><br>
 
-
-
-
-<%= button_to 'Service your shoe', {:controller => "invoices", :action => "create", :user_shoe_id => @user_shoe.id}, :method=>:post  %>
+<%= button_to 'Service your shoe', {:controller => "invoices", :action => "create", :user_shoe_id => @user_shoe.id}, :method => :post  %>
 
 <!--  :user_id=> session[:user_id] -->
 

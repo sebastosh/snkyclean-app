@@ -28,7 +28,7 @@ class InvoiceServicesController < ApplicationController
 
     respond_to do |format|
       if @invoice_service.save
-        format.html { redirect_to @invoice_service, notice: 'Invoice service was successfully created.' }
+        format.html { redirect_to @invoice_service.invoice, notice: 'Invoice service was successfully created.' }
         format.json { render :show, status: :created, location: @invoice_service }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class InvoiceServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_service_params
-      params.fetch(:invoice_service, {})
+      params.require(:invoice_service).permit(:invoice_id, :service_id)
     end
 end

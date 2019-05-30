@@ -24,7 +24,9 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    @invoice = Invoice.new(user_shoe_id: params[:user_shoe_id])
+    @invoice = Invoice.create(user_shoe_id: params[:user_shoe_id])
+    # @service = Service.find(params[:id])
+    # @is = InvoiceService.create(invoice_id: @invoice.id, service_id: @service.id)
 
     respond_to do |format|
       if @invoice.save

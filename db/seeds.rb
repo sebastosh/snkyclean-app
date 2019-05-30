@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Shoe.create([{ brand: 'Nike', style: 'Tailwind' }, { brand: 'Reebok', style: 'Pumps' }, { brand: 'Adidas', style: 'Yeezy' }, { brand: 'Puma', style: 'Ones' },])
+
+Service.create([{ name: 'Classic Clean (Upper, Mid)', price: 15 }, { name: 'Deep Clean (Inset Stains)', price: 30 }, { name: 'Freshner', price: 10 }, { name: 'Lace Cleaning', price: 5 },])
