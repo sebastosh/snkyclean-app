@@ -24,13 +24,13 @@ class InvoiceServicesController < ApplicationController
   # POST /invoice_services
   # POST /invoice_services.json
   def create
-    byebug
     @invoice_service = InvoiceService.new(invoice_service_params)
 
     respond_to do |format|
       if @invoice_service.save
-        format.html { redirect_to @invoice_service.invoice, notice: 'Invoice service was successfully created.' }
-        format.json { render :show, status: :created, location: @invoice_service }
+        @invoice = @invoice_service.invoice
+        format.html {render template: 'invoices/show', notice: 'Invoice service was successfully created.' }
+        # format.json { render :show, status: :created, location: @invoice_service }
       else
         format.html { render :new }
         format.json { render json: @invoice_service.errors, status: :unprocessable_entity }
@@ -70,6 +70,6 @@ class InvoiceServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_service_params
-      params.require(:invoice_service).permit( {:invoice => [:id, :user_shoe, :paid]}, {:service => [:id, :name, :price]} )
+      params.require(:invoice_service).permit(:invoice_id, :service_id)
     end
 end

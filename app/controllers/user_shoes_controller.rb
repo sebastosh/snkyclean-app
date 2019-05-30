@@ -36,7 +36,7 @@ class UserShoesController < ApplicationController
     #     format.json { render json: @user_shoe.errors, status: :unprocessable_entity }
     #   end
     # end
-    redirect_to user_path(params[:user_id])
+    redirect_to user_path(@user_shoe.user_id)
   end
 
   # PATCH/PUT /user_shoes/1

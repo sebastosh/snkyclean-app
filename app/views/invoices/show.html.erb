@@ -2,14 +2,21 @@
 <h1>Invoice: <%= @invoice.id %></h1>
 <h3><%= @invoice.user_shoe.user.name %>'s Sneaker: <%= @invoice.user_shoe.nickname %></h3>
 
-<%= form_with(model: @invoice_service, local: true) do |form| %>
+<%= form_for(:invoice_service, url: invoice_services_url) do |form| %>
 <%= form.label "Choose A Service BRUHHHH:" %><br>
-<%= form.collection_select :service_id, Service.all, :id, :name %><br>
+<%= form.hidden_field :invoice_id, value: @invoice.id %>
+<%= form.collection_select :service_id, Service.all, :id, :service_price %><br>
+<%= form.submit "Add Service" %>
 <% end %>
 
-<%  %>
+<%= @invoice_service ? @invoice_service.service.name : nil %>
 
-<%= button_to 'Add Service', {:controller => "invoice_services", :action => "create", :invoice_id => @invoice.id, :service_id => params[:id]}, :method => :post  %>
-
+<%  if @invoice_service %>
+  <%= form_for(:invoice_service, url: invoice_service_url(@invoice_service.id)) do |form| %>
+  <%= form.hidden_field :invoice_id, value: @invoice_service.id %>
+  <br>
+  <%= form.submit "Pay" %>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

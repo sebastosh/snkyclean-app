@@ -1,6 +1,11 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  helper_method :name_price
 
+  def name_price
+    "#{name} - #{price}"
+  end
+  
   # GET /invoices
   # GET /invoices.json
   def index
