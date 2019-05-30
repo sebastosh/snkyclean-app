@@ -24,6 +24,7 @@ class InvoiceServicesController < ApplicationController
   # POST /invoice_services
   # POST /invoice_services.json
   def create
+    byebug
     @invoice_service = InvoiceService.new(invoice_service_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class InvoiceServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_service_params
-      params.require(:invoice_service).permit(:invoice_id, :service_id)
+      params.require(:invoice_service).permit( {:invoice => [:id, :user_shoe, :paid]}, {:service => [:id, :name, :price]} )
     end
 end

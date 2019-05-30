@@ -2,17 +2,14 @@
 <h1>Invoice: <%= @invoice.id %></h1>
 <h3><%= @invoice.user_shoe.user.name %>'s Sneaker: <%= @invoice.user_shoe.nickname %></h3>
 
-<%= form_with(url: '/invoice_services/new', method: :get) do |form| %>
-<%= form.hidden_field :invoice_id, :value => params[:id] %>
-  <%= form.label "Choose A Service BRUHHHH:" %><br>
-  <% for service in Service.all %>
-  <%= check_box_tag "service[service_ids][]", service.id, @invoice.services.include?(service) %><br>
-  <%= service.name %> - $<%= service.price %>
-  <% end %>
-  <%= form.submit "Add Service" %><br>
-  <% end %>
+<%= form_with(model: @invoice_service, local: true) do |form| %>
+<%= form.label "Choose A Service BRUHHHH:" %><br>
+<%= form.collection_select :service_id, Service.all, :id, :name %><br>
+<% end %>
 
-  <%= button_to 'Add Service', {:controller => "invoice_services", :action => "create", :invoice_id => @invoice.id}, :method => :post  %>
+<%  %>
+
+<%= button_to 'Add Service', {:controller => "invoice_services", :action => "create", :invoice_id => @invoice.id, :service_id => params[:id]}, :method => :post  %>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
