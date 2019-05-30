@@ -1,6 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @user.name %></h1>
+<%= button_to 'Add Shoes to your Collection', {:controller => "user_shoes", :action => "new", :user_id => @user.id}, :method=>:get  %>
+</td>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">Your Shoe Collection</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.user_shoes.each do |user_shoe| %>
+      <tr>
+        <td><% if user_shoe.user_shoe_image.attached? %>
+        <%= image_tag user_shoe.user_shoe_image  %>
+        <% end %></td>
+        <td><%= link_to user_shoe.nickname, user_shoe %></td>
+        <td><%= button_to 'Service your shoe', {:controller => "invoices", :action => "create", :user_shoe_id => user_shoe.id}, :method=>:post  %>
+</td>
+        <td><%= link_to 'Edit', edit_user_shoe_path(user_shoe) %></td>
+        <td><%= link_to 'Destroy', user_shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> ∙
 <%= link_to 'Add Shoe', new_user_shoe_path %></p>

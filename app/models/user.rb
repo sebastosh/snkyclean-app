@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :user_shoes
   has_many :shoes, through: :user_shoes
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
+
 end
