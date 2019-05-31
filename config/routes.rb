@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :shoes
   resources :users
 
+  root 'users#new' # shortcut for the above
 end

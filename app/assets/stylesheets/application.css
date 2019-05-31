@@ -10,6 +10,169 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
+
+
+
+
+
+
+
+
+ body {
+     background-color: #d4dfe8;
+ }
+
+a {
+     color: #75d7c4
+   text-decoration: none;
+ }
+
+a:visited {
+  color: #10b9b2;
+  text-decoration: none;
+}
+
+ @import url(https://fonts.googleapis.com/css?family=Noto:900);
+ *, *:before, *:after{
+   box-sizing:border-box;
+ }
+ body{
+   font-family: 'Lato', sans-serif;
+     ;
+ }
+ div.foo{
+   width: 90%;
+   margin: 0 auto;
+   text-align: center;
+ }
+ .letter{
+   display: inline-block;
+   font-weight: 900;
+   font-size: 5em;
+   margin: 0.2em;
+   position: relative;
+   color: #14e0d7;
+   transform-style: preserve-3d;
+   perspective: 400;
+   z-index: 1;
+
+ }
+ .letter:before, .letter:after{
+   position:absolute;
+   content: attr(data-letter);
+   transform-origin: top left;
+   top:0;
+   left:0;
+ }
+ .letter, .letter:before, .letter:after{
+   transition: all 0.3s ease-in-out;
+ }
+ .letter:before{
+   color: #fff;
+   text-shadow:
+     -1px 0px 1px rgba(32, 208, 160, 0.8),
+     1px 0px 1px #2061cecc;
+   z-index: 3;
+   transform:
+     rotateX(0deg)
+     rotateY(-15deg)
+     rotateZ(0deg);
+ }
+ .letter:after{
+   color: rgba(0, 0, 0, 0.18);
+   z-index:2;
+   transform:
+     scale(1.08,1)
+     rotateX(0deg)
+     rotateY(0deg)
+     rotateZ(0deg)
+     skew(0deg,1deg);
+ }
+ .letter:hover:before{
+   color: #fafafa;
+   transform:
+     rotateX(0deg)
+     rotateY(-40deg)
+     rotateZ(0deg);
+ }
+ .letter:hover:after{
+   transform:
+     scale(1.08,1)
+     rotateX(0deg)
+     rotateY(40deg)
+     rotateZ(0deg)
+     skew(0deg,22deg);
+ }
+
+
+.wrapper {
+    display: block;
+    font-weight: 400;
+    width: 85%;
+    margin: 0 auto;
+    text-align:center;}
+
+.wrapper img{
+    border:1px solid #09847e;
+    border-radius: 10px;}
+
+.profile {
+display:inline-block;
+    float:left;
+    width: 10%;
+    text-align:left;
+}
+.profile img {
+    display:block;
+    float:left;
+    width: 100%;
+    text-align:left;
+}
+
+.post_container {
+display:inline-flex;
+width: 80%;
+}
+
+.post{
+    display:block;
+   width: 40%;
+   margin: 0 10px;
+    }
+
+.post h3 {text-align:left;}
+
+.shoe-data {
+    display:block;
+    width: 100%;
+    }
+.shoe-data img {
+    border: 1px solid;
+    display: block;
+    width: 100%;
+    }
+
+.actions {
+    border:1px solid #09847e;
+    border-radius: 25px;
+    padding: 25px;
+   display: block;
+   margin: 0 auto 2em;
+   width: 40%;
+line-height:2em;
+text-align:left;
+}
+
+.action_user {
+    border-radius: 25px;
+    padding: 25px;
+   display: block;
+   margin: 10px auto 2em;
+   width: 40%;
+line-height:2em;
+text-align:center;
+}

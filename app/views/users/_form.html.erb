@@ -12,9 +12,10 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="action_user">
+    <%= form.label 'Join' %><br>
+    <%= form.text_field :name %><br>
+    <%= form.file_field :user_image %><br>
     <%= form.submit %>
   </div>
 <% end %>
