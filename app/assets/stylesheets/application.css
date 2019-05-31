@@ -176,3 +176,18 @@ text-align:left;
 line-height:2em;
 text-align:center;
 }
+.fishes
+{
+  position:absolute;
+  top: 450px;
+  left: 250px;
+  z-index: 1;
+}
+
+.fish
+{
+  position:absolute;
+  top: 450px;
+  left: 250px;
+  z-index: 2;
+}
