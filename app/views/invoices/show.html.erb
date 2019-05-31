@@ -12,11 +12,7 @@
 <%= @invoice_service ? @invoice_service.service.name : nil %>
 
 <%  if @invoice_service %>
-  <%= form_for(:invoice_service, url: invoice_service_url(@invoice_service.id)) do |form| %>
-  <%= form.hidden_field :invoice_id, value: @invoice_service.id %>
-  <br>
-  <%= form.submit "Pay" %>
-  <% end %>
+  <%= button_to "Pay", invoice_service_path(@invoice_service), method: :get %>
 <% end %>
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
