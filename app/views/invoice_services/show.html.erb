@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_invoice_service_path(@invoice_service) %> |
-<%= link_to 'Back', invoice_services_path %>
+<h1>Confirmation Page</h1><br>
+
+<h2>Payment Successful! 🤑</h2><br>
+
+<h3>Your sneakers officically SNKYCLEAN 💯</h3>
+
+<%= link_to 'Your Shoe Collection', user_path(@invoice_service.invoice.user_shoe.user) %>
