@@ -1,6 +1,7 @@
 <%= form_with(model: user_shoe, local: true) do |form| %>
   <div class="actions">
-     Name: <%= form.collection_select :user_id, User.all, :id, :name %><br>
+    Name: <%= @user ? @user.name : form.collection_select(:user_id, User.all, :id, :name) %><br>
+    <%= @user ? form.hidden_field(:user_id, value: @user.id) : nil %>
     <!-- Sneaker Brand: <%= form.collection_select :shoe_id, Shoe.all, :id, :brand %><br> -->
     Sneaker Style: <%= form.collection_select :shoe_id, Shoe.all, :id, :style %><br>
     Nickname: <%= form.text_field :nickname %><br>

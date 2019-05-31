@@ -16,6 +16,7 @@ class UserShoesController < ApplicationController
   # GET /user_shoes/new
   def new
     @user_shoe = UserShoe.new
+    @user = User.find(session[:user_id]) if session[:user_id]
   end
 
   # GET /user_shoes/1/edit
